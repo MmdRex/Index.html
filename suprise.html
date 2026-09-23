@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>اولین پاییز ما 🍂</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap');
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    overflow:hidden;
+    font-family:'Vazirmatn',sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    radial-gradient(circle at top,#fff0d9,#d8b08c);
+    color:#49352b;
+}
+
+
+/* برگ ها */
+
+.leaf{
+    position:fixed;
+    top:-50px;
+    animation:fall linear infinite;
+    z-index:1;
+}
+
+@keyframes fall{
+
+    0%{
+        transform:translateY(-50px) rotate(0);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+        translateY(110vh)
+        rotate(500deg);
+        opacity:0;
+    }
+}
+
+
+/* کارت */
+
+.container{
+    width:min(92%,650px);
+    z-index:5;
+}
+
+.card{
+
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(15px);
+    border-radius:35px;
+    padding:35px 25px;
+    text-align:center;
+    box-shadow:
+    0 25px 70px rgba(80,40,20,.2);
+
+}
+
+
+/* نقشه */
+
+.map{
+
+    position:relative;
+    height:170px;
+    margin-bottom:20px;
+
+}
+
+
+.dot{
+
+    position:absolute;
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    background:#b85c38;
+    box-shadow:0 0 20px #b85c38;
+
+}
+
+
+.you{
+
+    right:15%;
+    top:60px;
+
+}
+
+
+.her{
+
+    left:15%;
+    top:60px;
+
+}
+
+
+.line{
+
+    position:absolute;
+    top:70px;
+    left:18%;
+    right:18%;
+    height:3px;
+    background:
+    repeating-linear-gradient(
+    90deg,
+    #b85c38 0 10px,
+    transparent 10px 20px
+    );
+
+}
+
+
+.plane{
+
+    position:absolute;
+    top:45px;
+    left:45%;
+    font-size:30px;
+    animation:move 3s infinite alternate;
+
+}
+
+
+@keyframes move{
+
+    from{
+        transform:translateX(-20px);
+    }
+
+    to{
+        transform:translateX(20px);
+    }
+
+}
+
+
+/* متن */
+
+h1{
+
+    font-size:clamp(30px,7vw,50px);
+    margin:10px 0;
+    color:#593526;
+
+}
+
+
+.subtitle{
+
+    line-height:2;
+    color:#765849;
+    font-size:17px;
+
+}
+
+
+button{
+
+    border:none;
+    background:#a95732;
+    color:white;
+    padding:14px 30px;
+    border-radius:50px;
+    font-family:inherit;
+    font-size:16px;
+    cursor:pointer;
+
+}
+
+
+.hidden{
+    display:none;
+}
+
+
+
+.letter{
+
+    text-align:right;
+    line-height:2.3;
+    font-size:17px;
+
+}
+
+
+.cursor{
+
+    width:3px;
+    height:25px;
+    background:#b85c38;
+    display:inline-block;
+    animation:blink .7s infinite;
+
+}
+
+
+@keyframes blink{
+
+    50%{
+        opacity:0;
+    }
+
+}
+
+
+
+.heart{
+
+    font-size:60px;
+    animation:pulse 1.5s infinite;
+
+}
+
+
+@keyframes pulse{
+
+    50%{
+        transform:scale(1.15);
+    }
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="card">
+
+
+<div id="start">
+
+
+<div class="map">
+
+<div class="dot you"></div>
+
+<div class="dot her"></div>
+
+<div class="line"></div>
+
+<div class="plane">
+✈️
+</div>
+
+</div>
+
+
+<h1>
+یک پاییز، دو فاصله 🍂
+</h1>
+
+
+<p class="subtitle">
+
+شاید کیلومترها بین ما فاصله باشه،<br>
+ولی این اولین پاییزیه که تو توی زندگی منی فرناز 🤎
+
+</p>
+
+
+<button onclick="openLetter()">
+نامه رو باز کن 💌
+</button>
+
+
+</div>
+
+
+
+<div id="letter" class="hidden">
+
+
+<h1>
+شروع پاییز مبارک فرناز 🍁
+</h1>
+
+
+<div class="letter">
+
+<p id="text"></p>
+<span class="cursor"></span>
+
+</div>
+
+
+<br>
+
+
+<button onclick="finish()">
+یه چیز دیگه هست... ✨
+</button>
+
+
+</div>
+
+
+
+<div id="finish" class="hidden">
+
+<div class="heart">
+🤎
+</div>
+
+
+<h1>
+برای اولین پاییزمون
+</h1>
+
+
+<p class="subtitle">
+
+شاید کنار هم زیر بارون قدم نزنیم،<br>
+شاید برگ‌های پاییزی رو با هم جمع نکنیم،<br><br>
+
+ولی خوشحالم که این فصل رو<br>
+با کسی شروع می‌کنم که بودنش<br>
+فاصله‌ها رو کوچیک‌تر می‌کنه.
+
+<br><br>
+
+ممنونم فرناز که اولین پاییزم رو قشنگ‌تر کردی 🍂
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+const message = 
+`نمی‌دونم این پاییز قراره چه خاطره‌هایی بسازه...
+
+ولی می‌دونم یه چیزش فرق داره؛
+
+برای اولین بار توی پاییزم، تو هستی فرناز.
+
+ممنونم که با وجود فاصله،
+باعث می‌شی حس کنم نزدیکمی.
+
+امیدوارم هر برگ پاییزی،
+یادآور یه لبخند از تو باشه 🤎`;
+
+
+
+let index = 0;
+
+
+
+function openLetter(){
+
+document.getElementById("start")
+.classList.add("hidden");
+
+
+document.getElementById("letter")
+.classList.remove("hidden");
+
+
+type();
+
+}
+
+
+
+function type(){
+
+if(index < message.length){
+
+document.getElementById("text")
+.innerHTML += message[index]
+.replace(/\n/g,"<br>");
+
+index++;
+
+setTimeout(type,45);
+
+}
+
+}
+
+
+
+function finish(){
+
+document.getElementById("letter")
+.classList.add("hidden");
+
+
+document.getElementById("finish")
+.classList.remove("hidden");
+
+}
+
+
+
+
+function leaf(){
+
+let l=document.createElement("div");
+
+l.className="leaf";
+
+
+l.innerHTML=
+["🍂","🍁","🍃"][Math.floor(Math.random()*3)];
+
+
+l.style.left=Math.random()*100+"vw";
+
+
+l.style.fontSize=
+15+Math.random()*20+"px";
+
+
+l.style.animationDuration=
+5+Math.random()*5+"s";
+
+
+document.body.appendChild(l);
+
+
+
+setTimeout(()=>{
+
+l.remove();
+
+},10000);
+
+
+}
+
+
+
+setInterval(leaf,700);
+
+
+
+</script>
+
+
+</body>
+</html>
